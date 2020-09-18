@@ -5,9 +5,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UniBreakfast/poc-multiple-datasources.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UniBreakfast/poc-multiple-datasources/issues"
+  },
+  "homepage": "https://github.com/UniBreakfast/poc-multiple-datasources#readme"
 }
