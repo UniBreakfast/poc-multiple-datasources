@@ -1,7 +1,10 @@
-import {answer} from './center/module.js'
+import operate from './operate.js'
 
-import {fahrenheit} from './sub-front/sub-script.js'
+import resolveByHand from './resolveByHand/resolveByHand.js'
 
-console.log(answer)
 
-console.log(fahrenheit)
+operate('read', 'notes').then(console.log)
+
+
+
+Object.assign(window, {masterClerk: operate})
