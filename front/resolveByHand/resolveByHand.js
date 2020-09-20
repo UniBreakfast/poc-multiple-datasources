@@ -39,14 +39,20 @@ export default function resolveByHand(msg, options, specialWidth) {
         typeof option == 'object'? option.value : undefined
 
       if (typeof value == 'function') {
-        setTimeout(value)
+        if (option.secure) {
+          setTimeout(() => value(prompt('Enter permission key:')))
+        } else  setTimeout(value)
         resolve(null)
+
         if (specialWidth) choiceModal.updatePosition({width})
         return true
       }
       if (value !== undefined || option.length>1 && Array.isArray(option) ||
         typeof option == 'object' && !Array.isArray(option)) {
-        resolve(value)
+        if (option.secure) {
+          resolve({value, permissionKey: prompt('Enter permission key:')})
+        } else  resolve(value)
+
         if (specialWidth) choiceModal.updatePosition({width})
         return true
       }

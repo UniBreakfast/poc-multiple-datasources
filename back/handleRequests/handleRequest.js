@@ -1,6 +1,8 @@
 import fs from 'fs'
 import {ServerResponse} from 'http'
 
+import handleAPI from './api/handleAPI.js'
+
 const fsp = fs.promises,  {stat} = fsp
 const {stringify} = JSON
 
@@ -28,10 +30,15 @@ const utf = '; charset=utf-8',
       }
 
 
-export default async function reqHandler(req, resp) {
+export default async function handleRequest(req, resp) {
   let {method} = req,  url = decodeURI(req.url)
 
-  if (method=='GET') {
+  if (url.startsWith('/api/')) {
+    req.url = url.slice(5)
+    handleAPI(req, resp)
+  }
+
+  else if (method=='GET') {
 
     try {
         let path = process.cwd()+(url.startsWith('/center/')? '' : '/front')+url

@@ -1,6 +1,6 @@
 import {createServer} from 'http'
-import reqHandler from './sub-back/req-handler.js'
+import handleRequest from './handleRequests/handleRequest.js'
 
-createServer(reqHandler).listen(3000, () => {
+createServer(handleRequest).listen(3000, () => {
   console.log('Server started at http://localhost:3000')
 })
