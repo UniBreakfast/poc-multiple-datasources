@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/UniBreakfast/poc-multiple-datasources/issues"
   },
-  "homepage": "https://github.com/UniBreakfast/poc-multiple-datasources#readme"
+  "homepage": "https://github.com/UniBreakfast/poc-multiple-datasources#readme",
+  "dependencies": {
+    "mongodb": "^3.6.2"
+  }
 }
