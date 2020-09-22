@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/UniBreakfast/poc-multiple-datasources#readme",
   "dependencies": {
-    "mongodb": "^3.6.2"
+    "mongodb": "^3.6.2",
+    "mysql": "^2.18.1"
   }
 }

@@ -6,8 +6,7 @@ export default {
   },
   use_db(_, resp, {clerkName, permissionKey}) {
     if (permissionKey == process.env.MDS_ADMIN_KEY && clerkName in dataClerks) {
-      process.env.MDS_DB_IN_USE = clerkName
-      assignDataClerk()
+      assignDataClerk(clerkName)
       resp.end(`Granted. Server switched to ${clerkName}`)
     } else {
       resp.statusCode = 403
