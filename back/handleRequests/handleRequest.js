@@ -51,7 +51,7 @@ export default async function handleRequest(req, resp) {
           resp.setHeader('Content-Type', typeDict[ext])
 
     } catch (err) {
-      console.log(err);
+      console.error(err);
 
       resp.statusCode = 404
       resp.json('sorry, '+url+' is not available')

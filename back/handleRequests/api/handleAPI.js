@@ -33,7 +33,7 @@ export default async function handleAPI(req, resp) {
   try {
     resp.json(await operate(action, subject, data, credentials))
   } catch (err) {
-    console.log(err)
+    console.error(err)
 
     resp.statusCode = 417
     resp.json('API worked fine... until it didn\'t... ' +
