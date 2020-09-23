@@ -36,14 +36,20 @@ async function operate(action, subject, data, lastTry) {
     if (err != null) console.error(err)
     if (lastTry) throw err
 
-    connect()
+    await connect()
     return operate(action, subject, data, lastTry=true)
   }
 }
 // TODO Promisify this via events?
 function connect() {
-  connection = createConnection(uri)
-  connection.connect()
+  return new Promise((resolve, reject) => {
+    connection = createConnection(uri)
+    connection.connect(err => {
+      if (err) reject(err)
+      resolve()
+    })
+  })
+
 }
 
 function close() {
