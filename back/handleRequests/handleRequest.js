@@ -1,33 +1,18 @@
 import fs from 'fs'
-import {ServerResponse} from 'http'
+import { ServerResponse } from 'http'
 
+import './streamMethods.js'
+import typeDict from './typeDict.js'
 import handleAPI from './api/handleAPI.js'
+import handleFSaccess from './handleFSaccess.js'
 
 const fsp = fs.promises,  {stat} = fsp
-const {stringify} = JSON
+const { stringify } = JSON
 
 ServerResponse.prototype.json = function (obj) {
   this.setHeader('Content-Type', typeDict['json'])
   this.end(stringify(obj))
 }
-
-const utf = '; charset=utf-8',
-      typeDict = {
-        htm: 'text/html'+utf,
-        html: 'text/html'+utf,
-        json: 'application/json'+utf,
-        css: 'text/css'+utf,
-        txt: 'text/plain'+utf,
-        ico: 'image/x-icon',
-        jpeg: 'image/jpeg',
-        jpg: 'image/jpeg',
-        png: 'image/png',
-        gif: 'image/gif',
-        svg: 'image/svg+xml'+utf,
-        mp3: 'audio/mpeg',
-        mp4: 'video/mp4',
-        js: 'application/javascript'+utf,
-      }
 
 
 export default async function handleRequest(req, resp) {
@@ -38,7 +23,12 @@ export default async function handleRequest(req, resp) {
     handleAPI(req, resp)
   }
 
-  else if (method=='GET') {
+  else if (url.startsWith('/writable/')) {
+    req.url = '/center'+url
+    handleFSaccess(req, resp)
+  }
+
+  else if (method == 'GET') {
 
     try {
         let path = process.cwd()+(url.startsWith('/center/')? '' : '/front')+url
@@ -51,10 +41,9 @@ export default async function handleRequest(req, resp) {
           resp.setHeader('Content-Type', typeDict[ext])
 
     } catch (err) {
-      console.error(err);
+      console.error(err)
 
-      resp.statusCode = 404
-      resp.json('sorry, '+url+' is not available')
+      assign(resp, {statusCode:404}).json('sorry, '+url+' is not available')
     }
   }
 

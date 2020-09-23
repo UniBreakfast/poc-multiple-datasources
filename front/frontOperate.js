@@ -5,9 +5,10 @@ import credentials from './credentials.js'
 import operateHardRAM from './frontDataClerks/hardRAMclerk.js'
 import operateLS from './frontDataClerks/LSclerk.js'
 import operateOnBackend from './frontDataClerks/fetchBackClerk.js'
+import operateGlobalVault from './frontDataClerks/globalVaultClerk.js'
 
 const dataClerks = {hardcodeRAM: operateHardRAM, localStorage: operateLS,
-  backOperations: operateOnBackend}
+  backOperations: operateOnBackend, globalVault: operateGlobalVault}
 
 const operateViaDC = getDataClerk()
 

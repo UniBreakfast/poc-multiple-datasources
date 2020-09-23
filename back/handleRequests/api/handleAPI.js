@@ -4,14 +4,7 @@ import presentData from './presentData.js'
 import presentCredentials from './presentCredentials.js'
 import nonCRUD from './nonCRUD.js'
 
-import Stream from 'stream'
 
-Stream.prototype.receiveToString = function (parts = []) {
-  return new Promise((resolve, reject) => this
-    .on('data', part => parts.push(part))
-    .on('end', () => resolve(Buffer.concat(parts).toString('utf8')))
-    .on('error', reject))
-}
 
 export default async function handleAPI(req, resp) {
   const { url, method } = req
