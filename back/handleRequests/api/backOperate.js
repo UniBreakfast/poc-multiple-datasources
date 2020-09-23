@@ -7,8 +7,8 @@ const require = createRequire(import.meta.url)
 
 
 export const dataClerks = {
-  mongoDB: () => require('./dataClerks/mongoDBclerk.cjs'),
-  mySQL: () => require('./dataClerks/mySQLclerk.cjs'),
+  mongoDB: () => require('./backDataClerks/mongoDBclerk.cjs'),
+  mySQL: () => require('./backDataClerks/mySQLclerk.cjs'),
 }
 
 let operateViaDC, fireOldDC

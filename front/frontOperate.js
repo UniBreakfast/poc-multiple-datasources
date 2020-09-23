@@ -2,9 +2,9 @@ import resolveByHand from './resolveByHand/resolveByHand.js'
 
 import credentials from './credentials.js'
 
-import operateHardRAM from './dataClerks/hardRAMclerk.js'
-import operateLS from './dataClerks/LSclerk.js'
-import operateOnBackend from './dataClerks/fetchBackClerk.js'
+import operateHardRAM from './frontDataClerks/hardRAMclerk.js'
+import operateLS from './frontDataClerks/LSclerk.js'
+import operateOnBackend from './frontDataClerks/fetchBackClerk.js'
 
 const dataClerks = {hardcodeRAM: operateHardRAM, localStorage: operateLS,
   backOperations: operateOnBackend}
