@@ -59,7 +59,7 @@ function reassignVar(name, value) {
       for (const key in window[name]) delete window[name][key]
       Object.assign(window[name], value)
     } else  window[name] = value
-    console.log(name, 'loaded')
+    console.log(name+' loaded')
   }
   catch { console.log(`unable to load ${name} variable`) }
 
