@@ -1,4 +1,4 @@
-import * as data from '/center/data.js'
+import * as data from '../../center/data.js'
 
 const {stringify, parse} = JSON,  cloneViaJSON = data => parse(stringify(data))
 
