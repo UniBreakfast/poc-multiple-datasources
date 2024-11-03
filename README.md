@@ -1,4 +1,4 @@
-# poc-multiple-datasources
+# [poc-multiple-datasources](https://github.com/UniBreakfast/poc-multiple-datasources)
 
 ### An experiment with hot data source replacement
 
