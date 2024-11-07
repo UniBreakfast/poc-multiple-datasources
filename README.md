@@ -6,6 +6,8 @@ Tried to switch between Local Storage, Global Vault, save/load file on back end,
 
 Needs to be running on Node.js back-end.
 
+Further development of this idea is [here](https://github.com/UniBreakfast/pacer).
+
 ![image](https://github.com/user-attachments/assets/b032f4da-7b95-4133-97d5-36cad38a6dec)
 
 ![image](https://github.com/user-attachments/assets/95a3485f-4bf8-48ec-abae-1bdf42f02c8d)
